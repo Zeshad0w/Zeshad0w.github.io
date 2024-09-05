@@ -1,0 +1,572 @@
+.card {
+  max-width: 400px;
+  width: 100%;
+  margin: 50px auto;
+  border-radius: var(--border-radius);
+}
+
+.card .inner {
+  padding: 25px;
+  background: #222;
+  color: #fff;
+  border-radius: var(--border-radius);
+}
+
+.card h3 {
+  margin-bottom: 15px;
+}
+
+.example-1 {
+  margin-top: 60px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.example-1 .inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  margin: 5px;
+}
+
+.example-1::before {
+  content: "";
+  display: block;
+  background: linear-gradient(
+    90deg,
+    hsla(197, 100%, 64%, 1) 0%,
+    hsla(339, 100%, 55%, 1) 100%
+  );
+  height: 500px;
+  width: 500px;
+  position: absolute;
+  animation: rotate 8s linear infinite;
+  z-index: 0;
+}
+
+
+@keyframes rotate {
+  from {
+    transform: rotate(0);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+
+
+
+@font-face {
+  font-display: swap;
+  font-family: 'Ubuntu';
+  font-style: normal;
+  font-weight: 500;
+  src: url('/fonts/ubuntu-v20-latin-500.woff2');
+}
+
+@font-face {
+  font-display: swap;
+  font-family: 'Fira sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/fira-sans-v17-latin-regular.woff2');
+}
+
+:root {
+/*  --background:#222F;
+  --background-hover:#444F;
+  --text:#BBBF;
+  --bar:#7777CC;
+  --link:dodgerblue;*/
+  --border-radius: 8px;
+  --background:#222F;
+  --background-hover:#444F;
+  --text:#BBBF;
+  --bar: #feda0a; /*#feda0a*/
+  --link: #0cb45e; /*#0cb45e*/
+  animation-name: color;
+  animation-direction: alternate;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+
+}
+
+@keyframes color{
+  from {
+    --bar: #feda0a;
+    /*filter: brightness(75%);*/
+  }
+  to {
+    --bar :#0cb45e;
+  }
+}
+html {
+  /* header */
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+}
+
+.bar {
+  background: var(--bar);
+}
+
+#topbar {
+  position: fixed;
+  z-index: 1;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: calc(100% - 5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  container-name: topbar;
+  container-type: size;
+}
+
+.topbutton {
+  padding: 2rem;
+  position: relative;
+  color: var(--background);
+  text-decoration: none;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1.6rem;
+}
+
+@container topbar (max-width: 640px) {
+  .topbutton {
+    font-size: calc(3cqw + 0.4rem);
+    padding: calc(3.5cqw);
+  }
+}
+
+.topbutton:hover {
+  color: var(--background-hover);
+}
+
+#maincontent { 
+  padding-top: 5rem; 
+  padding-bottom: 2rem;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 30px;
+  container-name: maincontent;
+  /* if I use size it doesnt resize with children and it doesnt make body scrollable */
+  container-type: inline-size;
+}
+
+#maincontent .widgetcontainer {
+  width: auto;
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+}
+
+#maincontent .widgetcontainer .widget {
+  background-color: var(--background-hover);
+  /* the first elemnt is always the header which is padded vertically itself */
+  padding: 0.1rem 2rem 2rem 2rem;
+  margin: 2rem 1rem 2rem 1rem;
+  border-radius: 1rem;
+  border: 2px white solid;
+}
+
+#maincontent > p,
+#maincontent > h1,
+#maincontent > h2,
+#maincontent > h3,
+#maincontent > h4,
+#maincontent > h5,
+#maincontent > h6 {
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+  max-width: 1000px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sideimage {
+  position: relative;
+}
+
+p.left {
+  padding-left: 10%;
+  padding-right: 45%;
+  text-align: left;
+}
+
+p.right {
+  padding-right: 10%;
+  padding-left: 45%;
+  text-align: right;
+}
+
+.sideimage img {
+  z-index: -1;
+}
+
+img.left {
+  position: absolute;
+  top: -30%;
+  left: 0%;
+  height: 160%;
+}
+
+img.right {
+  position: absolute;
+  top: -30%;
+  right: 0%;
+  height: 160%;
+}
+
+a {
+  color: var(--link);
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-src {
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  /* 100% - ((margin-left + margin-right) * 2) */
+  width: calc(100% - 8rem);
+  max-width: 30rem;
+  height: 4rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--background-hover);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 1rem;
+  flex-shrink: 0;
+  overflow: hidden
+}
+
+a.contact-src {
+  text-decoration: none;
+}
+
+.contact-src img {
+  max-width: 4rem;
+  max-height: 4rem;
+  margin-right: 1rem;
+}
+
+.contact-src span {
+  color: white;
+  text-decoration: none;
+}
+
+.contact-src span a {
+  color: white;
+  text-decoration: none;
+}
+
+.project {
+  position: relative;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  /* 100% - ((margin-left + margin-right) * 2) */
+  width: calc(100% - 8rem);
+  max-width: 60rem;
+  height: 10rem;
+  margin-top: 2rem;
+  padding: 2rem;
+  background-color: var(--background-hover);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+a.project {
+  text-decoration: none;
+}
+
+#linkcontainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.link {
+  position: relative;
+  height: 8rem;
+  margin: 1rem;
+  padding: 2rem;
+  background-color: var(--background-hover);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  border-radius: 1rem;
+  text-decoration: none;
+  overflow: hidden;
+  flex-shrink: 0;
+  border: none;
+}
+
+.link:active {
+  filter: brightness(75%) !important;
+}
+
+.link:hover {
+  filter: brightness(90%);
+}
+
+
+.project .name {
+  color: white;
+  text-decoration: none;
+  font-size: 2.5rem;
+  margin-right: 3rem;
+  white-space: nowrap;
+}
+
+.link .name {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-size: 2.5rem;
+  white-space: nowrap;
+}
+
+.project .description {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  text-align: right;
+  margin-left: auto;
+}
+
+.tag {
+  position: absolute;
+  padding: 0.5rem;
+  font-size: 1.5rem;
+  left: 0;
+  top: 0;
+  border-radius: 0 0 1rem 0;
+  color: var(--background-hover) !important;
+}
+
+.contact-src .tag {
+  left: auto;
+  right: 0;
+  border-radius: 0 0 0 1rem;
+}
+
+.widget p {
+  margin-top: 0.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.widget h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+small {
+  font-size: 70%;
+}
+
+.buttoncontainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+#buttons h3 {
+  margin-bottom: 1rem;
+}
+
+.language {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+
+.language .name {
+  margin-bottom: 0.5rem;
+  width: auto;
+}
+
+.language progress {
+  /* For some reason margin-right doesn't work as expected here */
+  width: calc(100% - 1rem);
+  margin-left: 1rem;
+  background-color: var(--background);
+  border-width: 0;
+  border-radius: 5px;
+  height: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+
+  /* for chrome (it is silly) */
+  overflow: hidden;
+}
+
+/* how is this not standardized yet */
+.language progress::-moz-progress-bar {
+  background-color: var(--link);
+}
+.language progress::-webkit-progress-bar {
+  background-color: var(--background);
+}
+.language progress::-webkit-progress-value {
+  background-color: var(--link);
+}
+
+#time > p:has(time) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#time time {
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--background);
+  color: var(--link);
+}
+
+#time small time {
+  padding: 0.7rem;
+  border-radius: 0.7rem;
+}
+
+.widget .focus {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  padding-top: 1rem;
+  width: auto;
+  display: block;
+  text-align: center;
+  padding-bottom: 1rem;
+  border-radius: 1rem;
+  background-color: var(--background);
+  color: var(--link)
+}
+
+@container maincontent (max-width: 900px) {
+  .project {
+    flex-direction: column;
+    overflow: hidden;
+    height: auto;
+  }
+  .project .name {
+    font-size: 2rem;
+    margin-right: 0;
+    padding-right: 1rem;
+    padding-left: 1rem;
+    white-space: wrap;
+    text-align: center;
+  }
+  .project .description {
+    padding-top: 1rem;
+    text-align: center;
+    margin: 0;
+  }
+  .project .tag {
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 0 0 1rem 1rem;
+    white-space: nowrap;
+  }
+  .project:has(.tag) .name {
+    padding-top: 1rem;
+  }
+}
+
+@container maincontent (max-width: 600px) {
+  .contact-src {
+    flex-direction: column;
+    height: auto;
+    font-size: 5cqw;
+  }
+  .contact-src img {
+    margin-right: 0;
+    margin-bottom: 1rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+  }
+  .contact-src .tag {
+    right: 50%;
+    transform: translateX(50%);
+    border-radius: 0 0 1rem 1rem;
+    white-space: nowrap;
+    font-size: 1.2rem;
+  }
+  .contact-src:has(.tag) img {
+    margin-top: 1rem;
+  }
+}
+
+@container maincontent (max-width: 1100px) {
+  button.link {
+    box-sizing: content-box;
+    margin-bottom: 3rem;
+  }
+
+  .link {
+    height: 3rem;
+    padding: 1.5rem;
+    margin: 0.5rem;
+  }
+
+  .link .name {
+    font-size: rem;
+  }
+}
+
+@container maincontent (max-width: 90rem) {
+  /* a lot of !important but everywhere else it uses the id and here the element with the id is the container so i cant reference it */
+  .widgetcontainer {
+    width: 100% !important;
+    grid-template-columns: 100% !important;
+  }
+
+  /* On desktop, the most important widgets are the widest and in the middle.
+   * On mobile, the most imporant widgets should be the same size but before all others
+   */
+  .widgetcontainer > :first-child {
+    grid-area: 3/1;
+  }
+
+  .widget {
+
+    margin: 2rem !important;
+  }
+
+  .widgetsubcontainer > :last-child {
+    margin-bottom: 0 !important;
+  }
+}
+
+@container maincontent (max-width: 500px) {
+  .widgetcontainer {
+    font-size: 20px !important;
+  }
+}
