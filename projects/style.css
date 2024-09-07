@@ -15,34 +15,13 @@
 }
 
 :root {
-/*  --background:#222F;
-  --background-hover:#444F;
-  --text:#BBBF;
-  --bar:#7777CC;
-  --link:dodgerblue;*/
-  --border-radius: 8px;
   --background:#222F;
   --background-hover:#444F;
   --text:#BBBF;
-  --bar: #feda0a; /*#feda0a*/
-  --link: #0cb45e; /*#0cb45e*/
-  animation-name: color;
-  animation-direction: alternate;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
+  --bar:#7777CC;
+  --link:dodgerblue;
 }
 
-@keyframes color{
-  from {
-    --bar: #feda0a;
-    /*filter: brightness(75%);*/
-  }
-  to {
-    --bar :#0cb45e;
-  }
-}
 html {
   /* header */
   scroll-padding-top: 5rem;
@@ -117,7 +96,6 @@ body {
   padding: 0.1rem 2rem 2rem 2rem;
   margin: 2rem 1rem 2rem 1rem;
   border-radius: 1rem;
-  border: 2px white solid;
 }
 
 #maincontent > p,
@@ -492,7 +470,6 @@ small {
   }
 
   .widget {
-
     margin: 2rem !important;
   }
 
