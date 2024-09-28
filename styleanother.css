@@ -24,25 +24,11 @@
   --background:#222F;
   --background-hover:#444F;
   --text:#BBBF;
-  --bar: #feda0a; /*#feda0a*/
-  --link: #0cb45e; /*#0cb45e*/
-  animation-name: color;
-  animation-direction: alternate;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
-
+  --bar: #0cb45e ; /*#feda0a*//*#e60505*/
+  --link: #0cb45e; /*#c80000*/
 }
 
-@keyframes color{
-  from {
-    --bar: #feda0a;
-    /*filter: brightness(75%);*/
-  }
-  to {
-    --bar :#0cb45e;
-  }
-}
+
 html {
   /* header */
   scroll-padding-top: 5rem;
@@ -70,6 +56,12 @@ body {
   align-items: center;
   container-name: topbar;
   container-type: size;
+}
+
+#topbar:hover{
+
+  --bar :#e60505;
+
 }
 
 .topbutton {
@@ -311,6 +303,14 @@ a.project {
   left: auto;
   right: 0;
   border-radius: 0 0 0 1rem;
+}
+
+
+.widget:hover{
+  --background:#222F;
+  --background-hover:#444F;
+  --text:#BBBF;
+  --link: #c80000; /*#0cb45e*/
 }
 
 .widget p {
